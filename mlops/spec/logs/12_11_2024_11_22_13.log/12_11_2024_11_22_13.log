@@ -1,0 +1,105 @@
+[ 2024-12-11 11:22:14,713 ] 97 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.94:8080
+[ 2024-12-11 11:22:14,713 ] 97 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2024-12-11 11:23:11,439 ] 97 werkzeug - INFO - 127.0.0.1 - - [11/Dec/2024 11:23:11] "GET / HTTP/1.1" 200 -
+[ 2024-12-11 11:23:13,098 ] 97 werkzeug - INFO - 127.0.0.1 - - [11/Dec/2024 11:23:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[ 2024-12-11 11:23:30,300 ] 97 werkzeug - INFO - 127.0.0.1 - - [11/Dec/2024 11:23:30] "[33mGET /predict HTTP/1.1[0m" 404 -
+[ 2024-12-11 11:24:07,876 ] 97 werkzeug - INFO - 127.0.0.1 - - [11/Dec/2024 11:24:07] "GET /predictdata HTTP/1.1" 200 -
+[ 2024-12-11 11:24:34,747 ] 875 app - ERROR - Exception on /predictdata [POST]
+Traceback (most recent call last):
+  File "C:\Users\saurabh\Desktop\aws_rn\src\utils.py", line 57, in load_object
+    with open(file_path, "rb") as file_obj:
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts\\model.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\saurabh\Desktop\aws_rn\src\pipeline\predict_pipeline.py", line 16, in predict
+    model=load_object(file_path=model_path)
+  File "C:\Users\saurabh\Desktop\aws_rn\src\utils.py", line 61, in load_object
+    raise CustomException(e, sys)
+src.exception.CustomException: Error occured in python script name [C:\Users\saurabh\Desktop\aws_rn\src\utils.py] line number [57] error message[[Errno 2] No such file or directory: 'artifacts\\model.pkl']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\saurabh\Desktop\aws_rn\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\saurabh\Desktop\aws_rn\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\saurabh\Desktop\aws_rn\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\saurabh\Desktop\aws_rn\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\Users\saurabh\Desktop\aws_rn\app.py", line 37, in predict_datapoint
+    results=predict_pipeline.predict(pred_df)
+  File "C:\Users\saurabh\Desktop\aws_rn\src\pipeline\predict_pipeline.py", line 23, in predict
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [C:\Users\saurabh\Desktop\aws_rn\src\pipeline\predict_pipeline.py] line number [16] error message[Error occured in python script name [C:\Users\saurabh\Desktop\aws_rn\src\utils.py] line number [57] error message[[Errno 2] No such file or directory: 'artifacts\\model.pkl']]
+[ 2024-12-11 11:24:34,763 ] 97 werkzeug - INFO - 127.0.0.1 - - [11/Dec/2024 11:24:34] "[35m[1mPOST /predictdata HTTP/1.1[0m" 500 -
+[ 2024-12-11 11:24:43,895 ] 875 app - ERROR - Exception on /predictdata [POST]
+Traceback (most recent call last):
+  File "C:\Users\saurabh\Desktop\aws_rn\src\utils.py", line 57, in load_object
+    with open(file_path, "rb") as file_obj:
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts\\model.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\saurabh\Desktop\aws_rn\src\pipeline\predict_pipeline.py", line 16, in predict
+    model=load_object(file_path=model_path)
+  File "C:\Users\saurabh\Desktop\aws_rn\src\utils.py", line 61, in load_object
+    raise CustomException(e, sys)
+src.exception.CustomException: Error occured in python script name [C:\Users\saurabh\Desktop\aws_rn\src\utils.py] line number [57] error message[[Errno 2] No such file or directory: 'artifacts\\model.pkl']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\saurabh\Desktop\aws_rn\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\saurabh\Desktop\aws_rn\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\saurabh\Desktop\aws_rn\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\saurabh\Desktop\aws_rn\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\Users\saurabh\Desktop\aws_rn\app.py", line 37, in predict_datapoint
+    results=predict_pipeline.predict(pred_df)
+  File "C:\Users\saurabh\Desktop\aws_rn\src\pipeline\predict_pipeline.py", line 23, in predict
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [C:\Users\saurabh\Desktop\aws_rn\src\pipeline\predict_pipeline.py] line number [16] error message[Error occured in python script name [C:\Users\saurabh\Desktop\aws_rn\src\utils.py] line number [57] error message[[Errno 2] No such file or directory: 'artifacts\\model.pkl']]
+[ 2024-12-11 11:24:43,895 ] 97 werkzeug - INFO - 127.0.0.1 - - [11/Dec/2024 11:24:43] "[35m[1mPOST /predictdata HTTP/1.1[0m" 500 -
+[ 2024-12-11 11:24:52,441 ] 875 app - ERROR - Exception on /predictdata [POST]
+Traceback (most recent call last):
+  File "C:\Users\saurabh\Desktop\aws_rn\src\utils.py", line 57, in load_object
+    with open(file_path, "rb") as file_obj:
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts\\model.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\saurabh\Desktop\aws_rn\src\pipeline\predict_pipeline.py", line 16, in predict
+    model=load_object(file_path=model_path)
+  File "C:\Users\saurabh\Desktop\aws_rn\src\utils.py", line 61, in load_object
+    raise CustomException(e, sys)
+src.exception.CustomException: Error occured in python script name [C:\Users\saurabh\Desktop\aws_rn\src\utils.py] line number [57] error message[[Errno 2] No such file or directory: 'artifacts\\model.pkl']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\saurabh\Desktop\aws_rn\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\saurabh\Desktop\aws_rn\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\saurabh\Desktop\aws_rn\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\saurabh\Desktop\aws_rn\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\Users\saurabh\Desktop\aws_rn\app.py", line 37, in predict_datapoint
+    results=predict_pipeline.predict(pred_df)
+  File "C:\Users\saurabh\Desktop\aws_rn\src\pipeline\predict_pipeline.py", line 23, in predict
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [C:\Users\saurabh\Desktop\aws_rn\src\pipeline\predict_pipeline.py] line number [16] error message[Error occured in python script name [C:\Users\saurabh\Desktop\aws_rn\src\utils.py] line number [57] error message[[Errno 2] No such file or directory: 'artifacts\\model.pkl']]
+[ 2024-12-11 11:24:52,441 ] 97 werkzeug - INFO - 127.0.0.1 - - [11/Dec/2024 11:24:52] "[35m[1mPOST /predictdata HTTP/1.1[0m" 500 -

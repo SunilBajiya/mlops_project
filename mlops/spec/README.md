@@ -1,3 +1,12 @@
+<img width="1672" height="941" alt="image" src="https://github.com/user-attachments/assets/f16859da-6967-4f9b-8e4a-b0efb9e56ad0" />
+
+
+
+
+
+
+
+
 ## End to End MAchine Learning Project
 
 1. Docker Build checked
